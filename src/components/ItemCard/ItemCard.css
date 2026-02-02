@@ -1,0 +1,24 @@
+.card {
+  border: 1px;
+  width: 323px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.card__image {
+  width: 100%;
+  border: 1px;
+  height: 326px;
+  border-radius: 19px;
+}
+.card__name {
+  position: absolute;
+  top: 15px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  height: 24px;
+  width: 73px;
+}
