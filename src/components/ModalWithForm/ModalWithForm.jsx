@@ -1,4 +1,4 @@
-import "./ModalWIthForm.css";
+import "./ModalWithForm.css";
 import closeIcon from "../../assets/close.svg";
 
 function ModalWithForm({
