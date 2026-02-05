@@ -1,3 +1,4 @@
+import "./ItemModal.css";
 import closeIcon from "../../assets/close__white.svg";
 function ItemModal({ activeModal, handleCloseClick, card }) {
   return (
