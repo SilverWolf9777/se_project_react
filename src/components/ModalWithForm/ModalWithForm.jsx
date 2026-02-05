@@ -27,7 +27,7 @@ function ModalWithForm({
         <h2 className="modal__title">{titleText}</h2>
         <form className="modal__form"> {children}</form>
 
-        <button className="modal__submit" type="submit">
+        <button className="modal__submit ui-text-2" type="submit">
           {buttonText}
         </button>
       </div>

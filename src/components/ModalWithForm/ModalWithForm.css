@@ -92,10 +92,10 @@
   border-radius: 4px;
   background-color: black;
   color: white;
+  border: none;
 }
 .modal__submit:hover {
   background-color: #00000099;
-  border: none;
 }
 .modal__submit:disabled {
   background-color: #0000004d;
