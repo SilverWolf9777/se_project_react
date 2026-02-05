@@ -1,3 +1,19 @@
 .modal__caption {
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 20px 0 0 32px;
+}
+.modal__caption_weather {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 12px 0 32px 32px;
+  font-style: bold;
+}
+.modal__content_type_card {
+  background-color: #fff;
+  border-radius: 16px;
+  position: relative;
+}
+.modal__image {
+  border-radius: 16px;
 }
