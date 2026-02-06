@@ -13,13 +13,12 @@ function WeatherCard({ weatherData }) {
   } else {
     weatherOption = filteredOptions[0];
   }
-
   return (
     <section className="weather-card">
       <p className="weather-card__temp">{weatherData.temp.F} &deg;</p>
       <img
         src={weatherOption?.url}
-        alt={`This card is the ${weatherOption.isDay ? "day" : "night"} ${weatherOption?.condition} photo`}
+        alt={`This card is the ${weatherOption.day ? "day" : "night"} ${weatherOption?.condition} photo`}
         className="weather-card__image"
       />
     </section>

@@ -26,3 +26,101 @@
 .header__username {
   margin: 0;
 }
+
+.header__modal_btn {
+  display: none;
+}
+
+.header__hide {
+  display: none;
+}
+.display {
+  display: none;
+}
+.modal__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+@media screen and (max-width: 627px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .header__row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .modal__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header__hide {
+    display: block;
+  }
+
+  .header__add-clothes-btn {
+    display: none;
+  }
+
+  .header__modal_btn {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    margin-left: auto;
+  }
+
+  .header__user-container.modal {
+    position: fixed;
+    top: 18px;
+    left: 16px;
+    right: 16px;
+    height: 208px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+  .header__user-container.modal.header__user-container-open {
+    visibility: visible;
+    opacity: 1;
+    background-color: #fff; /* make the whole container white */
+    border-radius: 10px;
+    padding: 30px;
+    min-width: 300px;
+    min-height: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .display {
+    display: block;
+    background-color: #fff;
+    margin: 40px auto 0;
+  }
+}

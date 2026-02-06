@@ -1,29 +1,3 @@
-@font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../../vendor/fonts/CabinetGrotesk-Variable.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
-
-.ui-text-1 {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-}
-.ui-text-2 {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-}
-.ui-text-2-Bold {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-}
-
 .page {
   background-color: #f3f3f3;
   font-family: "Cabinet Grotesk", sans-serif;

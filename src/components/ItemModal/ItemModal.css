@@ -17,3 +17,10 @@
 .modal__image {
   border-radius: 16px;
 }
+
+@media screen and (max-width: 627px) {
+  .modal__image {
+    max-width: 343px;
+    max-height: 343px;
+  }
+}
