@@ -1,0 +1,40 @@
+.toggle-switch {
+  margin-left: auto;
+  width: 56px;
+  height: 28px;
+  border: 2px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+.toggle-switch__checkbox {
+  opacity: 0;
+}
+.toggle-switch__circle {
+  position: absolute;
+  left: 0;
+  background-color: black;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  transition: all 0.4s;
+}
+.toggle-switch__f {
+  left: 9px;
+}
+.toggle-switch__c {
+  right: 9px;
+}
+.toggle-switch__text {
+  color: gray;
+  position: absolute;
+  top: 5px;
+  size: 14px;
+  font-weight: bold;
+}
+.toggle-switch__checkbox:checked ~ .toggle-switch__circle {
+  left: 28px;
+}
