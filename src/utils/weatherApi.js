@@ -13,7 +13,10 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
 export const filterWeatherData = (weatherData) => {
   const result = {};
   result.city = weatherData.name;
-  result.temp = { F: weatherData.main.temp };
+  result.temp = {
+    F: weatherData.main.temp,
+    C: Math.round(((weatherData.main.temp - 32) * 5) / 9),
+  };
   result.type =
     result.temp.F >= 86 ? "hot" : result.temp.F >= 66 ? "warm" : "cold";
   result.condition = weatherData.weather[0].main.toLowerCase();
