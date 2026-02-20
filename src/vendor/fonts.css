@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../../vendor/fonts/CabinetGrotesk-Variable.ttf") format("truetype");
+  src: url("./fonts/CabinetGrotesk-Variable.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
