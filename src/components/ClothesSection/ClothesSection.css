@@ -1,0 +1,26 @@
+.clothes-section__row {
+  display: flex;
+  flex-direction: row;
+}
+.clothes-section__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(283px, 1fr));
+  grid-gap: 21px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: start;
+}
+.clothes-section {
+  flex-grow: 1;
+}
+.clothes-section__add-item-btn {
+  border: none;
+  background-color: transparent;
+  color: #00000099;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.clothes-section__add-item-btn:hover {
+  color: black;
+}

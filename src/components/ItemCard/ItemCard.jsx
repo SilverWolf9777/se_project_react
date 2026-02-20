@@ -9,7 +9,7 @@ function ItemCard({ item, onCardClick }) {
       <p className="card__name ui-text-2-Bold">{item.name}</p>
       <img
         className="card__image"
-        src={item.link}
+        src={item.imageUrl}
         alt={item.name}
         onClick={() => {
           handleCardClick();

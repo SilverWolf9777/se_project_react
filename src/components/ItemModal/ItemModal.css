@@ -1,7 +1,6 @@
 .modal__caption {
   font-size: 20px;
   line-height: 24px;
-  margin: 20px 0 0 32px;
 }
 .modal__caption_weather {
   font-size: 20px;
@@ -17,7 +16,17 @@
 .modal__image {
   border-radius: 16px;
 }
-
+.modal__row {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 32px 0 32px;
+}
+.modal__delete-item-btn {
+  border: none;
+  color: #ff4d00;
+  background-color: transparent;
+  padding: 0;
+}
 @media screen and (max-width: 627px) {
   .modal__image {
     max-width: 343px;

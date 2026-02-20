@@ -43,7 +43,13 @@
   align-items: center;
   gap: 12px;
 }
-
+.modal__row.modal__no_margin {
+  margin: 0;
+}
+.header__nav-link {
+  color: black;
+  text-decoration: none;
+}
 @media screen and (max-width: 627px) {
   .header {
     flex-direction: column;

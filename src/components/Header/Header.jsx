@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 import logo from "../../assets/header__logo.svg";
 import avatar from "../../assets/header__avatar.svg";
@@ -28,7 +29,11 @@ function Header({
   return (
     <header className="header ui-text-1">
       <div className="header__row">
-        <img className="header__logo" src={logo} alt="header logo WTWR" />
+        <NavLink to="/">
+          {" "}
+          <img className="header__logo" src={logo} alt="header logo WTWR" />
+        </NavLink>
+
         <button
           className="header__modal_btn"
           type="button"
@@ -66,10 +71,18 @@ function Header({
             className="modal__close-icon"
           />
         </button>
-        <div className="modal__row">
-          <p className="header__username">Terrence Tegegne</p>
-          <img className="header__avater" src={avatar} alt="Terrence Tegegne" />
-        </div>
+        <NavLink className="header__nav-link" to="/profile">
+          {" "}
+          <div className="modal__row modal__no_margin">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              className="header__avater"
+              src={avatar}
+              alt="Terrence Tegegne"
+            />
+          </div>
+        </NavLink>
+
         <button
           type="button"
           onClick={handleAddClick}

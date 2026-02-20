@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Header from "../Header/Header";
@@ -6,23 +7,31 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import {
-  coordinates,
-  apiKey,
-  defaultClothingItems,
-} from "../../utils/constants";
+
+import { getItems, addItem, removeItem } from "../../utils/api";
+
+import { coordinates, apiKey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnit";
 import AddItemModal from "../AddItemModal/addItemModal";
+import Profile from "../Profile/Profile";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "cold",
     temp: { F: 999, C: 999 },
     city: "",
   });
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+
+  const onAddItem = (inputValues) => {
+    addItem(inputValues)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+      })
+      .catch(console.error);
+  };
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -40,7 +49,16 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
-
+  const handleDeleteItem = (card) => {
+    removeItem(card._id)
+      .then(() => {
+        setClothingItems((prev) =>
+          prev.filter((item) => item._id !== card._id),
+        );
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
   useEffect(() => {
     getWeather(coordinates, apiKey)
       .then((data) => {
@@ -50,6 +68,11 @@ function App() {
       .catch((err) => {
         console.error("Errorfetching weather", err);
       });
+    getItems()
+      .then((data) => {
+        setClothingItems([...data].reverse());
+      })
+      .catch(console.error);
   }, []);
 
   return (
@@ -65,21 +88,41 @@ function App() {
             handleCloseClick={closeActiveModal}
             handleModalClick={handleOpenHeaderModal}
           />
-          <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-            clothingItems={clothingItems}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  clothingItems={clothingItems}
+                  handleCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
+                ></Profile>
+              }
+            />
+          </Routes>
+
           <Footer />
         </div>
         <AddItemModal
           activeModal={activeModal}
           closeActiveModal={closeActiveModal}
+          onAddItem={onAddItem}
         ></AddItemModal>
         <ItemModal
           isOpen={activeModal === "preview"}
           handleCloseClick={closeActiveModal}
           card={selectedCard}
+          deleteItem={handleDeleteItem}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
