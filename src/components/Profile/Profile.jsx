@@ -1,5 +1,5 @@
 import ClothesSection from "../ClothesSection/ClothesSection";
-import SideBar from "../SideBar/Sidebar";
+import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 export default function Profile({
   handleCardClick,

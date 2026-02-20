@@ -3,11 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import logo from "../../assets/header__logo.svg";
 import avatar from "../../assets/header__avatar.svg";
-import header__modal_btn_img from "../../assets/header__modal_btn.svg";
+import headerModalBtnImg from "../../assets/headerModalBtnImg.svg";
 import closeIcon from "../../assets/close.svg";
 import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-("../ToggleSwitch/ToggleSwitch");
 
 function Header({
   handleAddClick,
@@ -40,8 +39,8 @@ function Header({
           onClick={handleModalClick}
         >
           <img
-            src={header__modal_btn_img}
-            alt="header__modal_btn_img"
+            src={headerModalBtnImg}
+            alt="header modal button when small"
             className="header__modal_btn_img"
           />
         </button>

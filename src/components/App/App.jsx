@@ -26,7 +26,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const onAddItem = (inputValues) => {
-    addItem(inputValues)
+    return addItem(inputValues)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
       })
