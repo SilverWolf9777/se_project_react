@@ -35,12 +35,15 @@
 .modal__content {
   max-width: 424px;
   width: 100%;
-  max-height: 380px;
+  /* allow the content to expand with form errors instead of clipping */
+  /* max-height: 380px; */
   border-radius: 20px;
   border: 1px;
   background-color: #fff;
   position: relative;
   padding: 28px 28px 36px;
+  box-sizing: border-box;
+  overflow-y: auto; /* scroll if content still exceeds viewport */
 }
 
 .modal__form {
@@ -84,6 +87,12 @@
   padding: 0;
 }
 
+.modal__radio-buttons_invalid {
+  border: 1px solid #e74c3c;
+  padding: 8px;
+  border-radius: 4px;
+}
+
 .modal__submit {
   width: 124px;
   height: 36px;
@@ -98,6 +107,16 @@
 }
 .modal__submit:disabled {
   background-color: #0000004d;
+}
+
+.modal__error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.modal__input_invalid {
+  border-bottom: 1px solid #e74c3c;
 }
 
 @media screen and (max-width: 627px) {
