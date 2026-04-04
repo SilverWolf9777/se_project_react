@@ -8,7 +8,22 @@
   margin-right: 24px;
 }
 
+.header__row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__auth-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: 16px;
+}
+
 .header__date-and-location {
+  align-self: center;
   margin: 0;
 }
 
@@ -130,4 +145,31 @@
     background-color: #fff;
     margin: 40px auto 0;
   }
+}
+
+.header__user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__avatar,
+.header__avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.header__avatar {
+  object-fit: cover;
+}
+
+.header__avatar-placeholder {
+  background-color: #ccc;
+  color: #fff;
 }

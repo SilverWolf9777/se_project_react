@@ -8,7 +8,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 export default defineConfig([
   globalIgnores(["dist"]),
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["*.js", "*.jsx"],
     extends: [
       js.configs.recommended,
       react.configs.flat.recommended,
@@ -28,10 +28,5 @@ export default defineConfig([
       "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
       "react/prop-types": 0,
     },
-    overrides: [
-      {
-        files: ["*.js", "*.jsx"],
-      },
-    ],
   },
 ]);

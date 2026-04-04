@@ -12,4 +12,18 @@
 .sidebar__avatar {
   height: 56px;
   width: 56px;
+  padding-bottom: 16px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.sidebar__btn {
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: #000000;
 }

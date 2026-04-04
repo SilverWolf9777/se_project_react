@@ -23,6 +23,13 @@
   min-width: 73px;
   margin: 0;
 }
+.card__like-button {
+  border: none;
+  position: absolute;
+  background-color: transparent;
+  left: 200px;
+  top: 20px;
+}
 
 @media screen and (max-width: 627px) {
   .card {

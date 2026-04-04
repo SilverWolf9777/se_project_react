@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import logo from "../../assets/header__logo.svg";
 import avatar from "../../assets/header__avatar.svg";
@@ -14,11 +16,16 @@ function Header({
   isOpened,
   handleCloseClick,
   handleModalClick,
+  onLoginClick,
+  onRegisterClick,
+  onLogoutClick,
 }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+  const currentUser = useContext(CurrentUserContext);
+  const isLoggedIn = !!currentUser;
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 627);
   useEffect(() => {
     const handleResize = () => setIsSmallScreen(window.innerWidth <= 627);
@@ -32,30 +39,64 @@ function Header({
           {" "}
           <img className="header__logo" src={logo} alt="header logo WTWR" />
         </NavLink>
-
-        <button
-          className="header__modal_btn"
-          type="button"
-          onClick={handleModalClick}
-        >
-          <img
-            src={headerModalBtnImg}
-            alt="header modal button when small"
-            className="header__modal_btn_img"
-          />
-        </button>
+        <p className="header__date-and-location">
+          {currentDate}, {weatherData.city || "Loading city"}
+        </p>
+        <ToggleSwitch />
+        <div className="header__auth-actions">
+          {!isLoggedIn ? (
+            <>
+              <button
+                type="button"
+                className="header__add-clothes-btn ui-text-1"
+                onClick={onRegisterClick}
+              >
+                Sign up
+              </button>
+              <button
+                type="button"
+                className="header__add-clothes-btn ui-text-1"
+                onClick={onLoginClick}
+              >
+                Login
+              </button>
+            </>
+          ) : (
+            <div className="header__user-info">
+              <>
+                {" "}
+                <button
+                  type="button"
+                  onClick={handleAddClick}
+                  className="header__add-clothes-btn ui-text-1"
+                >
+                  + Add clothes
+                </button>
+                <NavLink className="header__nav-link" to="/profile">
+                  {" "}
+                  <div className="modal__row modal__no_margin">
+                    <p className="header__username">
+                      {currentUser?.name || (isLoggedIn ? "Profile" : "Guest")}
+                    </p>
+                    {currentUser?.avatar ? (
+                      <img
+                        className="header__avatar"
+                        src={currentUser.avatar}
+                        alt={currentUser?.name || "User"}
+                      />
+                    ) : (
+                      <div className="header__avatar-placeholder">
+                        {currentUser?.name?.charAt(0).toUpperCase() || "G"}
+                      </div>
+                    )}
+                  </div>
+                </NavLink>
+              </>
+            </div>
+          )}
+        </div>
       </div>
-      <p className="header__date-and-location">
-        {currentDate}, {weatherData.city}
-      </p>
-      <ToggleSwitch />
-      <button
-        type="button"
-        onClick={handleAddClick}
-        className="header__add-clothes-btn ui-text-1"
-      >
-        + Add clothes
-      </button>
+
       <div
         className={`header__user-container ${isSmallScreen ? "modal" : ""} ${isOpened && isSmallScreen ? "header__user-container-open" : ""}`}
       >
@@ -70,17 +111,6 @@ function Header({
             className="modal__close-icon"
           />
         </button>
-        <NavLink className="header__nav-link" to="/profile">
-          {" "}
-          <div className="modal__row modal__no_margin">
-            <p className="header__username">Terrence Tegegne</p>
-            <img
-              className="header__avater"
-              src={avatar}
-              alt="Terrence Tegegne"
-            />
-          </div>
-        </NavLink>
 
         <button
           type="button"

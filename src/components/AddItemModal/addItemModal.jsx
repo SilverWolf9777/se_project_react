@@ -103,6 +103,7 @@ const AddItemModal = ({ activeModal, onAddItem, closeActiveModal }) => {
             className=" modal__input modal__input_type_radio"
             type="radio"
             value="hot"
+            checked={values.weather === "hot"}
             onChange={handleChange}
           />
           Hot
@@ -114,6 +115,7 @@ const AddItemModal = ({ activeModal, onAddItem, closeActiveModal }) => {
             className=" modal__input modal__input_type_radio"
             type="radio"
             value="warm"
+            checked={values.weather === "warm"}
             onChange={handleChange}
           />
           Warm
@@ -125,6 +127,7 @@ const AddItemModal = ({ activeModal, onAddItem, closeActiveModal }) => {
             className=" modal__input modal__input_type_radio"
             type="radio"
             value="cold"
+            checked={values.weather === "cold"}
             onChange={handleChange}
           />
           Cold
