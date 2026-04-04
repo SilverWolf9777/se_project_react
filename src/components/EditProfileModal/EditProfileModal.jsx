@@ -4,16 +4,16 @@ import { useValidation } from "../../hooks/useValidation";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const validators = {
-  name: (v) => {
-    if (!v) return "Name is required";
-    if (v.length < 2) return "Name must be at least 2 characters";
-    if (v.length > 30) return "Name must be 30 characters or fewer";
+  name: (value) => {
+    if (!value) return "Name is required";
+    if (value.length < 2) return "Name must be at least 2 characters";
+    if (value.length > 30) return "Name must be 30 characters or fewer";
     return "";
   },
-  avatar: (v) => {
-    if (!v) return "Avatar URL is required";
+  avatar: (value) => {
+    if (!value) return "Avatar URL is required";
     try {
-      new URL(v);
+      new URL(value);
     } catch {
       return "Please enter a valid URL";
     }
@@ -68,10 +68,10 @@ const EditProfileModal = ({
       handleCloseClick={closeActiveModal}
       onSubmit={onFormSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="editProfile-name" className="modal__label">
         Name{" "}
         <input
-          id="name"
+          id="editProfile-name"
           name="name"
           type="text"
           className={`modal__input ${isSubmitted && errors.name ? "modal__input_invalid" : ""}`}
@@ -83,10 +83,10 @@ const EditProfileModal = ({
           <span className="modal__error">{errors.name}</span>
         )}
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="editProfile-avatar" className="modal__label">
         Avatar URL{" "}
         <input
-          id="avatar"
+          id="editProfile-avatar"
           name="avatar"
           type="text"
           className={`modal__input ${isSubmitted && errors.avatar ? "modal__input_invalid" : ""}`}

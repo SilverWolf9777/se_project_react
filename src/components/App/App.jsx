@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import "./App.css";
 
 import Header from "../Header/Header";
@@ -29,6 +29,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import AddItemModal from "../AddItemModal/addItemModal";
 import Profile from "../Profile/Profile";
 function App() {
+  const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState({
     type: "cold", // keep cold so initial clothing list renders
     temp: { F: "Loading...", C: "Loading..." },
@@ -119,6 +120,9 @@ function App() {
     return signUp({ name, avatar, email, password })
       .then(() => signIn({ email, password }))
       .then(handleAuthSuccess)
+      .then(() => {
+        navigate("/");
+      })
       .catch((err) => {
         console.error("Registration failed", err);
         throw err;
@@ -130,6 +134,9 @@ function App() {
       .then((authData) => {
         setLoginError("");
         return handleAuthSuccess(authData);
+      })
+      .then(() => {
+        navigate("/");
       })
       .catch((err) => {
         console.error("Login failed", err);

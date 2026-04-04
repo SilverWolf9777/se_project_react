@@ -4,8 +4,6 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import logo from "../../assets/header__logo.svg";
-import avatar from "../../assets/header__avatar.svg";
-import headerModalBtnImg from "../../assets/headerModalBtnImg.svg";
 import closeIcon from "../../assets/close.svg";
 import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";

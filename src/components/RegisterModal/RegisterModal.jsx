@@ -3,30 +3,30 @@ import { useValidation } from "../../hooks/useValidation";
 
 // custom rules for the register form
 const validators = {
-  name: (v) => {
-    if (!v) return "Name is required";
-    if (v.length < 2) return "Name must be at least 2 characters";
-    if (v.length > 30) return "Name must be 30 characters or fewer";
+  name: (value) => {
+    if (!value) return "Name is required";
+    if (value.length < 2) return "Name must be at least 2 characters";
+    if (value.length > 30) return "Name must be 30 characters or fewer";
     return "";
   },
-  email: (v) => {
-    if (!v) return "Email is required";
-    if (v.length < 3) return "Email must be at least 3 characters";
-    if (v.length > 30) return "Email must be 30 characters or fewer";
+  email: (value) => {
+    if (!value) return "Email is required";
+    if (value.length < 3) return "Email must be at least 3 characters";
+    if (value.length > 30) return "Email must be 30 characters or fewer";
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(v)) return "Please enter a valid email address";
+    if (!emailPattern.test(value)) return "Please enter a valid email address";
     return "";
   },
-  password: (v) => {
-    if (!v) return "Password is required";
-    if (v.length < 3) return "Password must be at least 3 characters";
-    if (v.length > 20) return "Password must be 20 characters or fewer";
+  password: (value) => {
+    if (!value) return "Password is required";
+    if (value.length < 3) return "Password must be at least 3 characters";
+    if (value.length > 20) return "Password must be 20 characters or fewer";
     return "";
   },
-  avatar: (v) => {
-    if (!v) return "Avatar URL is required";
+  avatar: (value) => {
+    if (!value) return "Avatar URL is required";
     try {
-      new URL(v);
+      new URL(value);
     } catch {
       return "Please enter a valid URL";
     }
@@ -69,10 +69,10 @@ const RegisterModal = ({ activeModal, onRegister, closeActiveModal }) => {
       handleCloseClick={closeActiveModal}
       onSubmit={onFormSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="register-email" className="modal__label">
         Email{" "}
         <input
-          id="email"
+          id="register-email"
           name="email"
           type="email"
           className={`modal__input ${isSubmitted && errors.email ? "modal__input_invalid" : ""}`}
@@ -84,10 +84,10 @@ const RegisterModal = ({ activeModal, onRegister, closeActiveModal }) => {
           <span className="modal__error">{errors.email}</span>
         )}
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="register-password" className="modal__label">
         Password{" "}
         <input
-          id="password"
+          id="register-password"
           name="password"
           type="password"
           className={`modal__input ${isSubmitted && errors.password ? "modal__input_invalid" : ""}`}
@@ -99,10 +99,10 @@ const RegisterModal = ({ activeModal, onRegister, closeActiveModal }) => {
           <span className="modal__error">{errors.password}</span>
         )}
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="register-name" className="modal__label">
         Name{" "}
         <input
-          id="name"
+          id="register-name"
           name="name"
           type="text"
           className={`modal__input ${isSubmitted && errors.name ? "modal__input_invalid" : ""}`}
@@ -114,10 +114,10 @@ const RegisterModal = ({ activeModal, onRegister, closeActiveModal }) => {
           <span className="modal__error">{errors.name}</span>
         )}
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="register-avatar" className="modal__label">
         Avatar URL{" "}
         <input
-          id="avatar"
+          id="register-avatar"
           name="avatar"
           type="text"
           className={`modal__input ${isSubmitted && errors.avatar ? "modal__input_invalid" : ""}`}

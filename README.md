@@ -4,11 +4,9 @@
 
 The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user. Has the ability for people to add their own clothes and weather recommendation. It has the ability to tell them the temperature in Celsius or Fahrenheit
 
-download json-server using npm install -g json-server@^0 if that doens't work use sudo before it
-The project uses its own mock backend api using json-server --watch db.json --id \_id --port 3001 in the terminal
-
 - Frontend: React, HTML, CSS, JavaScript, and React-Router
-- Backend: db.json using json-server
+- Backend: javascript [Link to backend found here](https://github.com/SilverWolf9777/se_project_express)
+  run both using npm run dev in the terminal.
 
 ## Links
 

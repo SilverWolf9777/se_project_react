@@ -37,7 +37,7 @@
   color: #7e7e7e;
   position: absolute;
   top: 5px;
-  size: 14px;
+  font-size: 14px;
   font-weight: bold;
 }
 .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
