@@ -12,6 +12,7 @@
   background-color: #fff;
   border-radius: 16px;
   position: relative;
+  max-width: 550px;
 }
 .modal__image {
   border-radius: 16px;

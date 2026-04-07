@@ -22,7 +22,7 @@ function ItemModal({ isOpen, handleCloseClick, card, deleteItem }) {
         </button>
         <img
           src={card.imageUrl}
-          alt="card modal image etc hat"
+          alt={`Image of ${card.name}`}
           className="modal__image"
         />
         <div className="modal__footer ">

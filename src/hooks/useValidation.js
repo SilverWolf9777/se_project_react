@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useForm } from "./useForm";
 
 /**
  * Custom hook for handling form values and validation state.
@@ -13,7 +14,7 @@ import { useState, useCallback } from "react";
  */
 export function useValidation(defaultValues = {}, validators = {}) {
   // values and error states
-  const [values, setValues] = useState(defaultValues);
+  const { values, setValues, handleChange: basicHandleChange } = useForm(defaultValues);
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,7 +40,7 @@ export function useValidation(defaultValues = {}, validators = {}) {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setValues((prev) => ({ ...prev, [name]: value }));
+    basicHandleChange(event);
 
     if (isSubmitted) {
       // revalidate field once user has attempted submit
