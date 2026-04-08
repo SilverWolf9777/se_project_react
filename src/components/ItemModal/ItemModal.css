@@ -16,6 +16,9 @@
 }
 .modal__image {
   border-radius: 16px;
+  height: 498px;
+  width: 498px;
+  object-fit: cover;
 }
 .modal__row {
   display: flex;

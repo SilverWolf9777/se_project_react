@@ -20,7 +20,7 @@ const validators = {
   },
 };
 
-const LoginModal = ({ activeModal, onLogin, closeActiveModal, loginError }) => {
+const LoginModal = ({ activeModal, onLogin, closeActiveModal, loginError, onSwitchModal }) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -52,6 +52,15 @@ const LoginModal = ({ activeModal, onLogin, closeActiveModal, loginError }) => {
       isOpened={activeModal === "login"}
       handleCloseClick={closeActiveModal}
       onSubmit={onFormSubmit}
+      secondaryAction={
+        <button
+          type="button"
+          className="modal__secondary-button"
+          onClick={onSwitchModal}
+        >
+          or Sign Up
+        </button>
+      }
     >
       <label htmlFor="login-email" className="modal__label">
         Email{" "}

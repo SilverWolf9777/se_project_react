@@ -93,6 +93,25 @@
   border-radius: 4px;
 }
 
+.modal__action-row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal__secondary-button {
+  background: transparent;
+  border: none;
+  color: #00000080;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  white-space: nowrap;
+}
+
 .modal__submit {
   width: 124px;
   height: 36px;

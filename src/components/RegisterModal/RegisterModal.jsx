@@ -34,7 +34,7 @@ const validators = {
   },
 };
 
-const RegisterModal = ({ activeModal, onRegister, closeActiveModal }) => {
+const RegisterModal = ({ activeModal, onRegister, closeActiveModal, onSwitchModal }) => {
   const defaultValues = {
     name: "",
     avatar: "",
@@ -68,6 +68,15 @@ const RegisterModal = ({ activeModal, onRegister, closeActiveModal }) => {
       isOpened={activeModal === "register"}
       handleCloseClick={closeActiveModal}
       onSubmit={onFormSubmit}
+      secondaryAction={
+        <button
+          type="button"
+          className="modal__secondary-button"
+          onClick={onSwitchModal}
+        >
+          or Login
+        </button>
+      }
     >
       <label htmlFor="register-email" className="modal__label">
         Email{" "}

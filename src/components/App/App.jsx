@@ -309,11 +309,13 @@ function App() {
             onLogin={onLogin}
             closeActiveModal={closeActiveModal}
             loginError={loginError}
+            onSwitchModal={() => setActiveModal("register")}
           />
           <RegisterModal
             activeModal={activeModal}
             onRegister={onRegister}
             closeActiveModal={closeActiveModal}
+            onSwitchModal={() => setActiveModal("login")}
           />
           <EditProfileModal
             activeModal={activeModal}
