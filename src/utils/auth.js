@@ -1,5 +1,5 @@
 import { handleServerResponse } from "./api";
-import baseUrl from "../utils/constants";
+import { baseUrl } from "../utils/constants";
 const headers = { "Content-Type": "application/json" };
 
 export const signUp = ({ name, avatar, email, password }) => {
