@@ -179,3 +179,8 @@ export const coordinates = {
 };
 
 export const apiKey = "b8950f6e45e4bd78b9fb63f91157e0f5";
+
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "http://api.wtwrsubdomainwoolf.jumpingcrab.com"
+    : "http://localhost:3001";
