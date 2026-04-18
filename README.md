@@ -14,4 +14,4 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 - [Figma Design profile page](https://www.figma.com/design/dQLJwEKasIdspciJAJrCaf/Sprint-11_-WTWR?node-id=311-433&p=f&t=8jIhew5JIGwjG57r-0)
 
--[Project pitch](https://youtu.be/v4I6wggTWJc)
+-[Project pitch](https://youtu.be/v4I6wggTWJc) -[Project pitch 15](https://www.youtube.com/watch?v=LbPB6vBaqfw)
