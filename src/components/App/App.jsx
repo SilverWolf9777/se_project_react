@@ -46,6 +46,7 @@ function App() {
 
   const onAddItem = (inputValues) => {
     const tokenFromStorage = localStorage.getItem("jwt");
+    console.log("jsonwebtoken:", tokenFromStorage);
     if (!tokenFromStorage) return Promise.reject("Missing authorization token");
     return addItem(inputValues, tokenFromStorage)
       .then((data) => {
