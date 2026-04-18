@@ -45,8 +45,9 @@ function App() {
   const [loginError, setLoginError] = useState("");
 
   const onAddItem = (inputValues) => {
-    if (!token) return Promise.reject("Missing authorization token");
-    return addItem(inputValues, token)
+    const tokenFromStorage = localStorage.getItem("jwt");
+    if (!tokenFromStorage) return Promise.reject("Missing authorization token");
+    return addItem(inputValues, tokenFromStorage)
       .then((data) => {
         setClothingItems((prev) => [data, ...prev]);
       })
